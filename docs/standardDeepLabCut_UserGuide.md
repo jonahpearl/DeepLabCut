@@ -263,8 +263,8 @@ deeplabcut.train_network(config_path, shuffle=1, trainingsetindex=0, gputouse=No
 By default, the pretrained networks are not in the DeepLabCut toolbox (as they are around 100MB each), but they get downloaded before you train. However, if not previously downloaded from the TensorFlow model weights, it will be downloaded and stored in a subdirectory *pre-trained* under the subdirectory *models* in *Pose_Estimation_Tensorflow*.
 At user specified iterations during training checkpoints are stored in the subdirectory *train* under the respective iteration directory.
 
-If the user wishes to restart the training at a specific checkpoint they can specify the full path of the checkpoint to
-the variable ``init_weights`` in the **pose_cfg.yaml** file under the *train* subdirectory (see Box 2).
+If the user wishes to restart the training at a specific checkpoint they can specify `keepdeconvweights=True` and set the full path of the checkpoint to
+the variable ``init_weights`` in the **pose_cfg.yaml** file under the *train* subdirectory (eg: /full/path/to/snapshot-150000, without any extension).
 
 **CRITICAL POINT:** It is recommended to train the ResNets or MobileNets for thousands of iterations until the loss plateaus (typically around **500,000**) if you use batch size 1. If you want to batch train, we recommend using Adam, see more here: https://deeplabcut.github.io/DeepLabCut/docs/recipes/nn.html#using-custom-image-augmentation.
 
